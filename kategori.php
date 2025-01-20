@@ -46,6 +46,7 @@ include '.includes/toast_notification.php'; // menyertakan file untuk menampilka
                         <!-- Modal untuk menghapus data kategori -->
 
                         <!-- modal untuk update data kategori -->
+                         <?php endwhile; ?>
                     </tbody>
                 </table>
             </div>
