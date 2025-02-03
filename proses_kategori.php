@@ -1,8 +1,11 @@
 <?php
+
 // menghubungkan ke file konfigurasi database
 include("config.php");
+
 // memulai sesi untuk menyimpan notifikasi
 session_start();
+
 // proses penambahan kategori baru
 if (isset($_POST['simpan'])) {
     // mengambil data nama kategori dari form
@@ -14,9 +17,11 @@ if (isset($_POST['simpan'])) {
 
     // menyimpan notifikasi berhasil atau gagal ke dalam session
     if ($exec) {
-        $_SESSION['notification'] = ['type' => 'Kategori berhasil di tambahkan!'];
+        $_SESSION['notification'] = ['type' => 'primary', // jenis notifikasi ( contoh: primary untuk keberhasilan ) 
+        'message' => 'Kategori berhasil ditambahkan!'];
     } else {
-        $_SESSION['notification'] = ['type' => 'danger', 'message' => 'Gagal menambahkan ketegori: ' . mysqli_error($conn) ];
+        $_SESSION['notification'] = ['type' => 'danger', // jenis notifikasi ( contoh: danger untuk kegagalan)
+        'message' => 'Gagal menambahkan ketegori: ' . mysqli_error($conn) ];
     }
 
     // redirect kembali ke halaman kategori
