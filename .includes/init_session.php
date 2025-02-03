@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-$name = $_session["name"];
-$role = $_session["role"];
+$name = $_SESSION["name"];
+$role = $_SESSION["role"];
 // ambil notifikasi jika ada,kemudian hapus dari sesi
 $notification =$_SESSION['notification'] ?? null;
 if ($notification) {
