@@ -16,14 +16,17 @@ include '.includes/toast_notification.php'; // menyertakan file untuk menampilka
                 <table id="datatable" class="table table-hover">
                     <thead>
                         <tr class="text-center">
-                            <th width="50px">Pilihan</th>
+                            <th width="50px">#</th>
+                            <th>Nama</th>
+                            <th width="150px">Pilihan</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
                         <?php
                         $index = 1;
                         $query = "SELECT * FROM categories";
-                        $exec = ($category = mysqli_fetch_assoc($exec)) :
+                        $exec = mysqli_query($conn, $query);
+                        while ($category = mysqli_fetch_assoc($exec)) :
                         ?>
                         <tr>
                             <!-- Menampilkan untuk opsi edit dan delete -->
@@ -79,3 +82,8 @@ include '.includes/toast_notification.php'; // menyertakan file untuk menampilka
         </div>
     </div>
  </div>
+
+ <!-- modal untuk hapus data kategori -->
+  <div class="modal fade" id="deleteCaregory_<?= $category['category_id']; ?>" tabindex="-1" aria-hidden="true">
+
+  </div>
