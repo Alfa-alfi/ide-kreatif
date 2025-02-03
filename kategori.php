@@ -22,6 +22,7 @@ include '.includes/toast_notification.php'; // menyertakan file untuk menampilka
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                        <!-- Mengambil data kategori dari database -->
                         <?php
                         $index = 1;
                         $query = "SELECT * FROM categories";
@@ -30,7 +31,7 @@ include '.includes/toast_notification.php'; // menyertakan file untuk menampilka
                         ?>
                         <tr>
                             <!-- Menampilkan untuk opsi edit dan delete -->
-                             <td><?= $index++;?></td>
+                             <td><?= $index++; ?></td>
                              <td><?= $category['category_name']; ?></td>
                              <td>
                                 <!-- dropdown untuk opsi edit dan delete -->
@@ -83,7 +84,27 @@ include '.includes/toast_notification.php'; // menyertakan file untuk menampilka
     </div>
  </div>
 
- <!-- modal untuk hapus data kategori -->
-  <div class="modal fade" id="deleteCaregory_<?= $category['category_id']; ?>" tabindex="-1" aria-hidden="true">
-
+ <!-- modal untuk tambah data kategori -->
+  <div class="modal fade" id="addCaregory" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Tambah Data</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form action="proses_kategori.php" method="POST">
+                    <div>
+                        <label for="namaKategori" class="form-label">Nama Kategori</label>
+                        <!-- input untuk nama kategori baru -->
+                         <input type="text" class="form-control" name="category_name" required/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
   </div>
