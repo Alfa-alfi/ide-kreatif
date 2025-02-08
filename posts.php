@@ -32,7 +32,7 @@ include '.includes/header.php';
                                  $result = $conn->query($query); // menjalankan query
                                  if ($result->num_rows > 0) { // jika terdapat data kategori
                                     while ($row = $result->fetch_assoc()) { // iterasi setiap kategori
-                                        echo "<option value='" . $row["category_id"] . "'>". $row["category_name"] . "</option>"
+                                        echo "<option value='" . $row["category_id"] . "'>". $row["category_name"] . "</option>";
                                     }
                                  }
                                  ?>
