@@ -1,21 +1,15 @@
 <?php
-// memasukkan header halaman
 include '.includes/header.php';
-// menyertakan file untuk menampilkan notifikasi ( jika ada )
 include '.includes/toast_notification.php';
 ?>
-
 <div class="container-xxl flex-grow-1 container-p-y">
-  <!-- tabel data kategori -->
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h4>Data Kategori</h4>
-            <!-- tombol ntuk menambahkan ketegori baru -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCategory">
                 Tambah Kategori
             </button>
         </div>
-
 <div class="card-body">
 <div class="table-responsive text-nowrap">
 <table id="datatable" class="table table-hover">
@@ -27,7 +21,7 @@ include '.includes/toast_notification.php';
 </tr>
 </thead>
 <tbody class="table-border-bottom-0">
-<!-- mengambil data kategori dari database -->
+
 <?php
 $index = 1;
 $query = "SELECT * FROM categories";
@@ -35,14 +29,14 @@ $exec = mysqli_query($conn, $query);
 while ($category = mysqli_fetch_assoc($exec)) : // Loop untuk setiap kategori
 ?>
     <tr>
-        <!-- menampilkan nomor, nama kategori, dan opsi -->
+        
         <td><?= $index++; ?></td>
          <td><?= $category['category_name']; ?></td> 
+
          <td>
-            <!-- dropdown untuk opsi edit dan delete -->
+            
             <div class="dropdown">
-                <button type="button" class="btn p-0 dropdown-toggle 
-                hide-arrow" data-bs-toggle="dropdown">
+                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                     <i class="bx bx-dots-vertical-rounded"></i>
                  </button>
                 <div class="dropdown-menu">
@@ -56,10 +50,7 @@ while ($category = mysqli_fetch_assoc($exec)) : // Loop untuk setiap kategori
             </div>
         </td>
     </tr>
-<!-- modal untuk hapus data kategori -->
 
-<!-- modal untuk update data kategori -->
- 
 <div class="modal fade" id="deleteCategory_<?= $category['category_id']; ?>" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
