@@ -4,18 +4,18 @@ session_start();
 $userId = $_SESSION["user_id"];
 $name = $_SESSION["name"];
 $role = $_SESSION["role"];
-//ambil notifikasi jika ada, kemudian hapus dari sesi
+// ambil notifikasi jika ada, kemudian hapus dari sesi
 $notification = $_SESSION['notification'] ?? null;
-if ($notification){
-    unset ($_SESSION['notification']);
+if ($notification) {
+    unset($_SESSION['notification']);
 }
-/* periksa apakah sesi username dan role sudah ada, 
+/* periksa apakah sesi username dan role sudah ada,
 jika tidak arahkan ke halaman login */
 if (empty($_SESSION["username"]) || empty($_SESSION["role"])) {
-    $_SESSION['notificcation'] = [
+    $_SESSION['notification'] = [
         'type' => 'danger',
         'message' => 'Silahkan Login Terlebih Dahulu!'
     ];
-    header ('Location: ./auth/login.php');
-    exit();
+    header('Location: ./auth/login.php');
+    exit(); // pastikan script berhenti setelh pengalihan
 }
